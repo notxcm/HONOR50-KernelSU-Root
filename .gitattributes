@@ -1,0 +1,23 @@
+# 默认：交给 git 自动判断文本/二进制
+* text=auto
+
+# 设备侧 shell 脚本必须是 LF —— CRLF 会让 Android 的 sh 解析出错
+*.sh   text eol=lf
+
+# Windows 批处理用 CRLF
+*.cmd  text eol=crlf
+*.bat  text eol=crlf
+
+# 符号表必须保持 LF —— 行尾多一个 \r 会让内核模块加载器的符号匹配全部落空
+*.txt  text eol=lf
+
+# 二进制文件不要做任何行尾转换
+*.png  binary
+*.ko   binary
+*.jpg  binary
+*.jpeg binary
+
+# 无扩展名的二进制工具
+tools/e            binary
+tools/ksud         binary
+tools/magiskpolicy binary
